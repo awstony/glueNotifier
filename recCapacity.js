@@ -35,11 +35,11 @@ exports.rechandler = (event) => {
 
      //get max needed Executors from Cloudwatch
      const cparams = {
-       EndTime: new Date('2020-07-09T17:10:00'),
+       EndTime: new Date(new Date - 1),
        MetricName: 'glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors',
        Namespace: 'Glue',
        Period: 60,
-       StartTime: new Date('2020-07-09T14:10:00'),
+       StartTime: new Date(new Date - 60*60*1000),
        Dimensions: [{
                Name: 'JobName',
                Value: runJob,
